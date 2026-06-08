@@ -1,8 +1,10 @@
-# main.py
+from readability.analyser import analyse_image
 
-from readability.ocr import extract_text
+results = analyse_image("sample_images/black.png")
 
-regions = extract_text("sample_images/superman.png")
-
-for region in regions:
-    print(region)
+for result in results:
+    print()
+    print(result.region.text)
+    print(f"FG: {result.foreground_luminance:.1f}")
+    print(f"BG: {result.background_luminance:.1f}")
+    print(f"Contrast: {result.contrast_ratio:.2f}")

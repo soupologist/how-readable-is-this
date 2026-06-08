@@ -8,16 +8,16 @@ class OCRRegion:
 
     x: int
     y: int
+
     width: int
     height: int
 
 
 @dataclass
 class AnalysisResult:
-    text: str
+    region: OCRRegion
 
-    brightness: float
-    complexity: float
-    blur: float
+    foreground_luminance: float
+    background_luminance: float
 
-    score: float
+    contrast_ratio: float
